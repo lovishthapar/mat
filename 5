@@ -1,0 +1,34 @@
+clc
+clear all
+t=-10:20;
+p=(t>=0);
+r=(t>=6);
+xn=p-r;
+l=length(xn);
+hn=xn;
+subplot(4,1,1);
+stem(xn);
+title('xn');
+subplot(4,1,2);
+stem(hn);
+title('hn');
+m=length(hn);
+xn=[xn,zeros(1,l+m-1)];
+hn=[hn,zeros(1,l+m-1)];
+y=zeros(1,l+m-1);
+
+for i=1:l+m-1
+    sum=0;
+    for j=1:i
+        sum=sum+xn(j)*hn(i-j+1);
+    end
+    y(i)=sum;
+end
+subplot(4,1,3);
+stem(y);
+title('conv')
+y1=conv(hn,xn);
+subplot(4,1,4);
+stem(y1);
+title('conv1');
+%exp5\
