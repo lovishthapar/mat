@@ -1,0 +1,27 @@
+clc
+clear all
+%u(t-1)
+t=-20:0.01:20;
+p=zeros(size(t));
+p(t>=1)=1;
+subplot(2,2,1);
+plot(t,p,'b','LineWidth',1);
+title('u(t-1)');
+%u(2t-1)
+ts=0.5*t;
+p1=zeros(size(ts));
+p1(ts>=-1)=1;
+subplot(2,2,2);
+plot(ts,p1);
+title('u(2t-1)');
+%r(t-1)
+y=(t>=1).*t;
+subplot(2,2,3);
+plot(t,y);
+title('r(t-1)');
+%sinc
+sin_ct=sinc(t);
+subplot(2,2,4);
+plot(t,sin_ct);
+title('sinc');
+%exp 4
