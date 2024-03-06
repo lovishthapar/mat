@@ -1,0 +1,35 @@
+clc
+clear all
+t=-20:0.5:20;
+p=zeros(size(t));
+r=zeros(size(t));
+p(t>=0)=1;
+r(t>=10)=1;
+y=p-r;
+subplot(4,1,1);
+stem(t,y,'r','LineWidth',2);
+title('orignal signal');
+xlabel('n');
+ylabel('amplitude');
+%flipped
+k=fliplr(y);
+subplot(4,1,2);
+stem(t,k,'b','LineWidth',2);
+title('flipped signal');
+xlabel('n');
+ylabel('amplitude');
+%even signal 
+y1=(y+k)/2;
+subplot(4,1,3);
+stem(t,y1,'g','LineWidth',2);
+title('even signal');
+xlabel('n');
+ylabel('amplitude');
+%odd
+y2=(y-k)/2;
+subplot(4,1,4);
+stem(t,y2,'y','LineWidth',2);
+title('odd signal');
+xlabel('n')
+ylabel('amplitude');
+% exp 3
