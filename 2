@@ -1,0 +1,74 @@
+clc
+clear all
+t=-2:0.01:2;
+p=zeros(size(t));
+p(t>0)=1;
+subplot(4,2,1);
+plot(t,p,'r','LineWidth',2);
+title('unit step')
+xlabel('time')
+ylabel('amplitude');
+%unit step discrete
+t1=-5:5;
+p1=zeros(size(t1));
+p1(t1>=0)=1;
+subplot(4,2,2);
+stem(t1,p1,'b','LineWidth',2);
+title('unit step')
+xlabel('n')
+ylabel('amplitude');
+%impulse continuous
+t2=-2:0.01:2;
+p2=zeros(size(t2));
+p2(t==0)=1;
+subplot(4,2,3);
+plot(t2,p2,'r','LineWidth',2);
+title('impulse');
+xlabel('time');
+ylabel('amplitude');
+%discrete impulse
+t3=-5:5;
+p3=zeros(size(t3));
+p3(t3==0)=1;
+subplot(4,2,4);
+stem(t3,p3,'b','LineWidth',2);
+title('impulse');
+xlabel('time');
+ylabel('amplitude');
+%ramp cont
+t4=-2:0.01:2;
+y=(t4>=0).*t4;
+subplot(4,2,5)
+plot(t4,y,'r','LineWidth',2);
+title('ramp')
+xlabel('time')
+ylabel('ampitude')
+%dis ramp
+t5=-5:5;
+y1=(t5>=0).*t5;
+subplot(4,2,6)
+stem(t5,y1,'b','LineWidth',2);
+title('ramp')
+xlabel('n')
+ylabel('ampitude')
+%rectangular cont
+t6=-2:0.01:2;
+wid=2;
+y2=zeros(size(t6));
+y2(t6>=-wid/2 & t6<=wid/2)=1
+subplot(4,2,7);
+plot(t6,y2,'r','LineWidth',2);
+title('rectangular')
+xlabel('time')
+ylabel('amplitude');
+%dis rectangular
+t7=-5:5;
+wid=2;
+y3=zeros(size(t7));
+y3(t7>=-wid/2 & t7<=wid/2)=1
+subplot(4,2,8);
+stem(t7,y3,'b','LineWidth',2);
+title('rectangular')
+xlabel('n')
+ylabel('amplitude');
+% exp 2
