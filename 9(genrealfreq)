@@ -1,0 +1,18 @@
+clc
+clear all
+b=[-1 0];
+a=[-1 0.9];
+subplot(2,2,1);
+zplane(b,a);
+w=-4*pi:4*pi;
+x=freqz(b,a,w);
+T=abs(x);
+anglex=angle(x);
+subplot(2,2,2);
+plot(w/pi,T)
+xlabel('generative frequency');
+ylabel('phase');
+subplot(2,2,3);
+plot(w/pi,anglex)
+xlabel('generative frequency'); 
+ylabel('magnitude')
