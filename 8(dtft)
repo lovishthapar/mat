@@ -1,0 +1,27 @@
+clc
+clear all
+
+n = -10:1:10;
+u1 = (n >=-3); % Corrected the assignment operator from '-' to '='
+u2 = (n >= 3); % Corrected the assignment operator from '-' to '='
+
+x = u1 - u2;
+
+subplot(2,1,1);
+stem(n,x);
+
+xlabel('t');
+ylabel('amplitude');
+title('Rectangular Pulse');
+
+subplot(2,1,2);
+
+w = -10*pi:0.1:10*pi;
+z = 0;
+for k = 1:length(w)
+    z=z+1
+    m(z) = sum(x .* exp(-1i * w(k) * n)); % Corrected the index variable from 'z' to 'k'
+end
+
+stem(w, abs(m));
+title('Discrete Time Fourier Series');
