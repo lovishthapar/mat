@@ -1,0 +1,23 @@
+clc
+clear all
+N=2;
+t=-N;0.01:N;
+k=0;
+for f=-5:0.01:5
+ k=k+1;
+x(k)=trapz(t,exp(-j*2*pi*f*t));
+end
+f=-5:0.01:5;
+plot(f,x,'b');
+xlabel('normalized frequency');
+ylabel('\bf CTFT');
+title('continous-time fourier transformation');
+grid
+figure
+tt=-N-0.1:0.01:N+0.1;
+xt=[zeroes(1,10),ones(1,length(t)),zeros(1,10)];
+plot(tt,xt,'r');
+grid
+xlabel('time(t)');
+ylabel('signal amplitude');
+title('Input signal x(t) 102206022');
