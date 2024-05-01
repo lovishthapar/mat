@@ -1,0 +1,9 @@
+clc
+clear all
+syms n z;
+x=((0.5)^n+(2)^n);
+xz=ztrans(x,n,z);
+b=[2 -5/2 0];
+a=[1-5/2 0];
+zplane(b,a);
+title('pole zero pattern')
