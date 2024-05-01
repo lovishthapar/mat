@@ -1,0 +1,19 @@
+clc
+clear
+N=10;
+n=1:N;
+x=sin(2*pi*n);
+x_dft=zeros(1,N);
+for k=0:N-1
+x_dft(k+1)=sum(x.*exp((-11*2*pi*k*n)/N));
+end
+x_fft=fft(x);
+k=1:N;
+subplot(2,1,1)
+plot(abs(x_dft),k)
+title('Mag DFT')
+subplot(2,1,2)
+plot(abs(x_fft),k)
+title('Mag FFT')
+disp(x_dft)
+disp(x_fft)
